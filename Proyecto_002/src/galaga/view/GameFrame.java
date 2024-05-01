@@ -2,11 +2,14 @@ package galaga.view;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import galaga.controller.Container;
 
@@ -31,6 +34,17 @@ public class GameFrame extends JFrame implements KeyListener {
 		contentPane.setBackground(Color.black);
 		setContentPane(contentPane);
 		addKeyListener(this);
+
+		Timer timer = new Timer(10, new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				container.moveDown(1);
+				repaint();
+			}
+
+		});
+		timer.start();
 	}
 
 	public void paint(Graphics g) {
@@ -54,6 +68,10 @@ public class GameFrame extends JFrame implements KeyListener {
 		}
 		case KeyEvent.VK_D: {
 			container.moveRight(20);
+			break;
+		}
+		case KeyEvent.VK_SPACE: {
+			container.drawShoot(getGraphics());
 			break;
 		}
 		default:

@@ -2,16 +2,13 @@ package galaga.model;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import galaga.model.Hero;
 
-public class Hero implements Drawable, Movable {
-
-	int[] cord_x = { 400, 450, 350 };
-	int[] cord_y = { 500, 550, 550 };
+public class Bullets implements Movable, Drawable {
 
 	@Override
 	public void draw(Graphics graphics) {
-		graphics.setColor(Color.WHITE);
-		graphics.fillPolygon(cord_x, cord_y, 3);
+		// TODO Auto-generated method stub
 
 	}
 
@@ -29,26 +26,21 @@ public class Hero implements Drawable, Movable {
 
 	@Override
 	public void moveLeft(int variable) {
-		// Restar
-		for (int i = 0; i < cord_x.length; i++) {
-			cord_x[i] = cord_x[i] - variable;
-		}
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void moveRight(int variable) {
-		// Sumar
-		for (int i = 0; i < cord_x.length; i++) {
-			cord_x[i] = cord_x[i] + variable;
-		}
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void draw(Graphics graphics, Drawable drawable) {
-		// TODO Auto-generated method stub
-		
+		graphics.setColor(Color.WHITE);
+		graphics.fillOval(((Hero) drawable).cord_x[0] + 10, ((Hero) drawable).cord_y[0] - 10, 10, 10);
+
 	}
 
 }
