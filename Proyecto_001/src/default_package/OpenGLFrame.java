@@ -1,4 +1,4 @@
-/*package default_package;
+package default_package;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -125,4 +125,3 @@ public class OpenGLFrame extends JFrame implements GLEventListener {
 
 	}
 }
-*/
